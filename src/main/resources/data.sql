@@ -1,0 +1,2 @@
+insert into animal (id, name, age, kind, price, date) values (1, 'Po prostu kot', 4, 'CAT', 432.23, '2019-03-12');
+insert into animal (id, name, age, kind, price, date) values (2, 'Duża, fajna', 2, 'ALPAKA', 678.23, '2019-03-12');
