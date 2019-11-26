@@ -1,2 +1,10 @@
 insert into animal (id, name, age, kind, price, date) values (1, 'Po prostu kot', 4, 'CAT', 432.23, '2019-03-12');
 insert into animal (id, name, age, kind, price, date) values (2, 'Duża, fajna', 2, 'ALPAKA', 678.23, '2019-03-12');
+insert into animal (id, name, age, kind, price, date) values (3, 'Reksio', 15, 'DOG', 999.99, '2019-06-06');
+insert into animal (id, name, age, kind, price, date) values (4, 'Filemon', 12, 'CAT', 1002.12, '2019-11-06');
+insert into animal (id, name, age, kind, price, date) values (5, 'Jeden jedyny, niepowtarzalny', 999, 'UNICORN', 999999.01, '2019-10-10');
+insert into animal (id, name, age, kind, price, date) values (6, 'Pink power', 1, 'FLAMINGO', 333.33, '2019-11-10');
+insert into animal (id, name, age, kind, price, date) values (7, 'Piesek Leszek', 4, 'DOG', 333.33, '2019-09-25');
+insert into animal (id, name, age, kind, price, date) values (8, 'Alpejska Paka', 10, 'ALPAKA', 44.44, '2019-01-25');
+insert into animal (id, name, age, kind, price, date) values (9, 'Mały słodki kotek', 1, 'CAT', 56.89, '2019-03-25');
+insert into animal (id, name, age, kind, price, date) values (10, 'Mingo Amigos', 22, 'FLAMINGO', 21.89, '2019-05-25');
