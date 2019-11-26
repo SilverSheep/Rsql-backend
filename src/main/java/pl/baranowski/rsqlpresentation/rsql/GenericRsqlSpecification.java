@@ -2,15 +2,23 @@ package pl.baranowski.rsqlpresentation.rsql;
 
 import cz.jirutka.rsql.parser.ast.ComparisonOperator;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @AllArgsConstructor
 public class GenericRsqlSpecification<T> implements Specification<T> {
 
@@ -72,9 +80,28 @@ public class GenericRsqlSpecification<T> implements Specification<T> {
                 return Integer.parseInt(arg);
             } else if (type.equals(Long.class)) {
                 return Long.parseLong(arg);
+            } else if (type.equals(Date.class)) {
+                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                try {
+                    return format.parse(arg);
+                } catch (ParseException e) {
+                    return null;
+                }
+            }
+             else if (type.equals(BigDecimal.class)) {
+                try {
+                    final var decimalFormat = new DecimalFormat();
+                    decimalFormat.setParseBigDecimal(true);
+                    return decimalFormat.parse(arg);
+                }
+                catch (ParseException ex) {
+                    log.error("Unable to parse BigDecimal: " + arg, ex);
+                    return null;
+                }
             } else {
                 return arg;
             }
+
         }).collect(Collectors.toList());
     }
 }

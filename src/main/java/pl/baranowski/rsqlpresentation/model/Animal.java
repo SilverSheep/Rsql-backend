@@ -1,5 +1,6 @@
 package pl.baranowski.rsqlpresentation.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +20,7 @@ public class Animal {
     private String name;
 
     @Column(nullable = false)
-    private int age;
+    private Integer age;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -29,5 +30,6 @@ public class Animal {
     private BigDecimal price;
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date date;
 }
