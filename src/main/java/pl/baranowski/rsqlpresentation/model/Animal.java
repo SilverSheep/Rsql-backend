@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,8 +25,7 @@ public class Animal {
     private Integer age;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private AnimalKind kind;
+    private String kind;
 
     @Column(nullable = false)
     private BigDecimal price;
@@ -32,4 +33,12 @@ public class Animal {
     @Column(nullable = false)
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date date;
+
+    public void setKind(AnimalKind kind) {
+        this.kind = kind.name();
+    }
+
+    public AnimalKind getKind() {
+        return Enum.valueOf(AnimalKind.class, kind);
+    }
 }
