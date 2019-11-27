@@ -51,16 +51,16 @@ public class GenericRsqlSpecification<T> implements Specification<T> {
                 }
             }
             case GREATER_THAN: {
-                return builder.greaterThan(root.get(property), argument.toString());
+                return builder.greaterThan(root.get(property), (Comparable) argument);
             }
             case GREATER_THAN_OR_EQUAL: {
-                return builder.greaterThanOrEqualTo(root.get(property), argument.toString());
+                return builder.greaterThanOrEqualTo(root.get(property), (Comparable) argument);
             }
             case LESS_THAN: {
-                return builder.lessThan(root.get(property), argument.toString());
+                return builder.lessThan(root.get(property), (Comparable) argument);
             }
             case LESS_THAN_OR_EQUAL: {
-                return builder.lessThanOrEqualTo(root.get(property), argument.toString());
+                return builder.lessThanOrEqualTo(root.get(property), (Comparable) argument);
             }
             case IN:
                 return root.get(property).in(args);
