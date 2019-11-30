@@ -34,6 +34,9 @@ public class Animal {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date date;
 
+    @Column(length = 9999999)
+    private String image;
+
     public void setKind(AnimalKind kind) {
         this.kind = kind.name();
     }
